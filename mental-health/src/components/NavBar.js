@@ -7,15 +7,15 @@ function NavBar() {
   const [click, setClick] = useState(false);
 
   const handleClick = () => setClick(!click);
+
   return (
     <>
       <nav className="navbar">
         <div className="nav-container">
           <NavLink exact to="/" className="nav-logo">
-            <span>KrushiVikas</span>
-            {/* <i className="fas fa-code"></i> */}
+            <span style={{ fontFamily: "Vidaloka" }}>KrushiVikas</span>
             <span className="icon">
-            <CodeIcon/> 
+              <CodeIcon />
             </span>
           </NavLink>
 
@@ -28,18 +28,51 @@ function NavBar() {
                 className="nav-links"
                 onClick={handleClick}
               >
-                Home
+                HOME
               </NavLink>
             </li>
             <li className="nav-item">
               <NavLink
                 exact
-                to="/explore"
+                to="/prediction"
                 activeClassName="active"
                 className="nav-links"
                 onClick={handleClick}
               >
-                Explore
+                PREDICTION
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                exact
+                to="/disease-detection"
+                activeClassName="active"
+                className="nav-links"
+                onClick={handleClick}
+              >
+                DISEASE DETECTION
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                exact
+                to="/blog"
+                activeClassName="active"
+                className="nav-links"
+                onClick={handleClick}
+              >
+                BLOG
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                exact
+                to="/yojana"
+                activeClassName="active"
+                className="nav-links"
+                onClick={handleClick}
+              >
+                YOJANA
               </NavLink>
             </li>
             <li className="nav-item">
@@ -50,24 +83,11 @@ function NavBar() {
                 className="nav-links"
                 onClick={handleClick}
               >
-                Feedback
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink
-                exact
-                to="/signup"
-                activeClassName="active"
-                className="nav-links"
-                onClick={handleClick}
-              >
-                Sign Up
+                FEEDBACK
               </NavLink>
             </li>
           </ul>
           <div className="nav-icon" onClick={handleClick}>
-            {/* <i className={click ? "fas fa-times" : "fas fa-bars"}></i> */}
-
             {click ? (
               <span className="icon">
                 <HamburgetMenuOpen />{" "}
