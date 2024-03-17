@@ -59,6 +59,7 @@
 .nav-item {
   line-height: 40px;
   margin-right: 1rem;
+  position: relative; /* Make the parent of dropdown menu relative */
 }
 
 .nav-item:after {
@@ -80,6 +81,10 @@
   border: 1px solid darkgreen;
 }
 
+.nav-links.active {
+  color: white; /* Set the color of active links to white */
+}
+
 .nav-icon {
   display: none;
   color: #f5b921;
@@ -89,6 +94,41 @@
   display: inline-block;
   width: 2rem;
   height: 2rem;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%; /* Position the dropdown menu below the parent */
+  left: 0;
+  z-index: 1; /* Ensure the dropdown appears above other elements */
+  background-color: rgba(0, 0, 0, 0.8); /* Set black background color with some transparency */
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.dropdown-menu li {
+  list-style-type: none; /* Remove bullet points */
+}
+
+.dropdown-menu li a {
+  color: #fff; /* Text color */
+  text-decoration: none; /* Remove underline */
+  display: block; /* Make the links block-level */
+  padding: 10px 20px; /* Padding for each link */
+  font-size: 1.2rem; /* Increased font size */
+}
+
+.dropdown-menu li a:hover {
+  background-color: #555; /* Background color on hover */
+}
+
+.nav-item:hover .dropdown-menu {
+  display: block; /* Show the dropdown menu when the parent is hovered */
+}
+
+.nav-item .arrow {
+  margin-left: 5px; /* Adjust spacing for the arrow */
 }
 
 @media screen and (max-width: 960px) {

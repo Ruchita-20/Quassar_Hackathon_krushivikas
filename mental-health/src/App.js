@@ -7,8 +7,16 @@ import { Explore } from "./components/Pages/Explore";
 import { Feedback } from "./components/Pages/Feedback";
 import { Signup } from "./components/Pages/Signup";
 import Chatbot from "./components/ChatBot";
+import Posts from "./components/Pages/Posts";
+import AddPost from "./components/Pages/AddPost";
+import Login from "./components/Pages/Login";
+import { useState } from "react";
+import Yojanas from "./components/Pages/Yojanas";
+import Schemes from "./components/Pages/Schemes";
+import Loans from "./components/Pages/Loans";
 
 function App() {
+  const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth"));
   return (
     <>
       <Router>
@@ -20,6 +28,12 @@ function App() {
             <Route path="/explore" element={<Explore />} />
             <Route path="/feedback" element={<Feedback />} />
             <Route path="/signup" element={<Signup />} />
+            <Route path="/blog/posts" element={<Posts isAuth={isAuth} />} />
+            <Route path="/blog/addpost" element={<AddPost isAuth={isAuth} />} />
+            <Route path="/blog/login" element={<Login setIsAuth={setIsAuth} />} />
+            <Route path="/yojana" element={<Yojanas/>} />
+            <Route path="/schemes" element={<Schemes />} />
+            <Route path="/loans" element={<Loans/>} />
           </Routes>
 
           
@@ -33,7 +47,7 @@ function App() {
         <i class="fa fa-whatsapp whatsapp-icon"></i>
       </a> */}
 
-     <Chatbot/>
+     
       </Router>
     </>
   );

@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import "./NavBar.css";
-import { CodeIcon, HamburgetMenuClose, HamburgetMenuOpen } from "./Icons";
+import { HamburgetMenuClose, HamburgetMenuOpen } from "./Icons";
+import navLogo from "./nav.png"; // Import your logo image
 
 function NavBar() {
   const [click, setClick] = useState(false);
@@ -13,10 +14,8 @@ function NavBar() {
       <nav className="navbar">
         <div className="nav-container">
           <NavLink exact to="/" className="nav-logo">
+            <img src={navLogo} alt="KrushiVikas Logo" className="logo-image" width="130px" /> {/* Use img tag for your logo */}
             <span style={{ fontFamily: "Vidaloka" }}>KrushiVikas</span>
-            <span className="icon">
-              <CodeIcon />
-            </span>
           </NavLink>
 
           <ul className={click ? "nav-menu active" : "nav-menu"}>
@@ -32,15 +31,15 @@ function NavBar() {
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink
-                exact
-                to="/prediction"
-                activeClassName="active"
+              <a
+                href="https://sidhhu0603-crop-prediction-quasar-app-3galyu.streamlit.app/"
                 className="nav-links"
                 onClick={handleClick}
+                target="_blank"
+                rel="noopener noreferrer"
               >
                 PREDICTION
-              </NavLink>
+              </a>
             </li>
             <li className="nav-item">
               <NavLink
@@ -53,16 +52,39 @@ function NavBar() {
                 DISEASE DETECTION
               </NavLink>
             </li>
-            <li className="nav-item">
+            <li className="nav-item dropdown">
               <NavLink
-                exact
                 to="/blog"
                 activeClassName="active"
                 className="nav-links"
                 onClick={handleClick}
               >
-                BLOG
+                COMMUNITY <span className="arrow">&#9662;</span>
               </NavLink>
+              <ul className="dropdown-menu">
+                <li>
+                  <NavLink
+                    exact
+                    to="/blog/posts"
+                    activeClassName="active"
+                    className="nav-links"
+                    onClick={handleClick}
+                  >
+                    Post
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    exact
+                    to="/blog/addpost"
+                    activeClassName="active"
+                    className="nav-links"
+                    onClick={handleClick}
+                  >
+                    Add Post
+                  </NavLink>
+                </li>
+              </ul>
             </li>
             <li className="nav-item">
               <NavLink
@@ -73,17 +95,6 @@ function NavBar() {
                 onClick={handleClick}
               >
                 YOJANA
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink
-                exact
-                to="/feedback"
-                activeClassName="active"
-                className="nav-links"
-                onClick={handleClick}
-              >
-                FEEDBACK
               </NavLink>
             </li>
           </ul>
